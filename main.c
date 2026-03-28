@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:16:11 by linux             #+#    #+#             */
-/*   Updated: 2026/03/27 17:38:16 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:19:31 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,12 @@ int	main(int argc, char **argv)
 			push_swap(&a, &b);
 	}
 	free_stack(&a);
+	if (argc == 2)
+	{
+		int i = 0;
+		while (argv[i])
+			free(argv[i++]);
+		free(argv);
+	}
 	return (0);
 }

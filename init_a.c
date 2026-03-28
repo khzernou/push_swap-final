@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 15:58:15 by khzernou          #+#    #+#             */
-/*   Updated: 2026/03/27 17:47:26 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:17:00 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	while (a)
 	{
 		match_idx = LONG_MIN;
+		target = NULL;
 		curr_b = b;
 		while (curr_b)
 		{
@@ -66,5 +67,5 @@ void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 	current_index(b);
 	set_target_a(a, b);
 	cost_analysis_a(a, b);
-	get_cheapest(a);
+	set_cheapest(a);
 }

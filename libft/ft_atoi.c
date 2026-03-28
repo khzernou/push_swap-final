@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 19:16:51 by khzernou          #+#    #+#             */
-/*   Updated: 2025/11/27 21:16:52 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:17:44 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,29 @@ int	ft_atoi(const char *str)
 		c++;
 	}
 	return ((int)sign * result);
+}
+
+long	ft_atol(const char *s)
+{
+	long	res;
+	int		sign;
+	int		i;
+
+	res = 0;
+	sign = 1;
+	i = 0;
+	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
+		i++;
+	if (s[i] == '-' || s[i] == '+')
+	{
+		if (s[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		res = res * 10 + (s[i] - '0');
+		i++;
+	}
+	return (res * sign);
 }
