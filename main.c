@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:16:11 by linux             #+#    #+#             */
-/*   Updated: 2026/03/30 14:49:14 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:33:20 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,37 +37,51 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 	min_on_top(a);
 }
 
+static void	free_args(char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (!argv)
+		return ;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
+}
+
+static void	sort_stack(t_stack_node **a, t_stack_node **b)
+{
+	if (!stack_sorted(*a))
+	{
+		if (stack_len(*a) == 2)
+			sa(a, "sa");
+		else if (stack_len(*a) == 3)
+			sort_three(a);
+		else
+			push_swap(a, b);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	int				i;
 
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	else if (argc == 2)
+	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	else
 		argv = argv + 1;
 	init_stack_a(&a, argv);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, "sa");
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			push_swap(&a, &b);
-	}
+	sort_stack(&a, &b);
 	free_stack(&a);
 	if (argc == 2)
-	{
-		i = 0;
-		while (argv[i])
-			free(argv[i++]);
-		free(argv);
-	}
+		free_args(argv);
 	return (0);
 }

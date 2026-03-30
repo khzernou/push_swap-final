@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 17:43:14 by khzernou          #+#    #+#             */
-/*   Updated: 2026/03/30 14:48:20 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:34:41 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,25 @@ void	set_cheapest(t_stack_node *stack)
 		head = head->next;
 	}
 	cheapest_node->cheapest = true;
+}
+
+void	current_index(t_stack_node *stack)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		i++;
+	}
 }
