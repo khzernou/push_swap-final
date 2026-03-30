@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:25:10 by khzernou          #+#    #+#             */
-/*   Updated: 2026/03/29 14:02:55 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:18:18 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,32 @@ int	error_duplicate(t_stack_node *a, int n)
 		a = a->next;
 	}
 	return (0);
+}
+
+// cleanup function
+void	free_stack(t_stack_node **stack)
+{
+	t_stack_node	*tmp;
+	t_stack_node	*current;
+
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
+}
+
+//write error on fd
+void	free_errors(t_stack_node **a)
+{
+	free_stack(a);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 static void	append_node(t_stack_node **stack, int n)
