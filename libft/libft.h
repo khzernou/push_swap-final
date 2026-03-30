@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 11:21:37 by khzernou          #+#    #+#             */
-/*   Updated: 2025/11/25 15:08:03 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/30 14:36:09 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <unistd.h>
 
+long	ft_atol(const char *s);
 int		ft_atoi(const char *str);
 int		ft_isalnum(int a);
 int		ft_isalpha(int a);

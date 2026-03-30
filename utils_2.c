@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 17:43:14 by khzernou          #+#    #+#             */
-/*   Updated: 2026/03/28 18:15:35 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/30 14:48:20 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	set_cheapest(t_stack_node *stack)
 	head = stack;
 	while (head)
 	{
-		head->cheapest = false; // Reset to false first
+		head->cheapest = false;
 		if (head->push_cost < cheapest_value)
 		{
 			cheapest_value = head->push_cost;

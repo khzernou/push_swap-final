@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:16:11 by linux             #+#    #+#             */
-/*   Updated: 2026/03/28 18:24:02 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/30 14:49:14 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	int				i;
 
 	a = NULL;
 	b = NULL;
@@ -63,7 +64,7 @@ int	main(int argc, char **argv)
 	free_stack(&a);
 	if (argc == 2)
 	{
-		int i = 0;
+		i = 0;
 		while (argv[i])
 			free(argv[i++]);
 		free(argv);
