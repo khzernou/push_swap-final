@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 17:43:14 by khzernou          #+#    #+#             */
-/*   Updated: 2026/03/28 23:26:25 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/28 18:15:35 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	set_cheapest(t_stack_node *stack)
 	head = stack;
 	while (head)
 	{
-		head->cheapest = false;
+		head->cheapest = false; // Reset to false first
 		if (head->push_cost < cheapest_value)
 		{
 			cheapest_value = head->push_cost;
@@ -82,25 +82,4 @@ void	set_cheapest(t_stack_node *stack)
 		head = head->next;
 	}
 	cheapest_node->cheapest = true;
-}
-
-void	current_index(t_stack_node *stack)
-{
-	int	i;
-	int	median;
-
-	i = 0;
-	if (!stack)
-		return ;
-	median = stack_len(stack) / 2;
-	while (stack)
-	{
-		stack->index = i;
-		if (i <= median)
-			stack->above_median = true;
-		else
-			stack->above_median = false;
-		stack = stack->next;
-		i++;
-	}
 }

@@ -8,17 +8,16 @@ LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ./libft/printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-SRCS = algo.c \
-	free.c \
-	init_a.c \
-	init_b.c \
-	main.c \
-	moves.c \
-	moves_2.c \
-	operation.c \
-	split_n_check.c \
-	utils.c \
-	utils_2.c \
+SRCS = main.c \
+		operation.c \
+		split_n_check.c \
+		algo.c \
+		init_a.c \
+		init_b.c \
+		moves.c \
+		moves_2.c \
+		utils.c \
+		utils_2.c
 
 OBJS = $(SRCS:.c=.o)
 

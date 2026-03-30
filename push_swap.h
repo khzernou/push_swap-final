@@ -6,7 +6,7 @@
 /*   By: khzernou <khzernou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 17:44:03 by khzernou          #+#    #+#             */
-/*   Updated: 2026/03/29 13:55:56 by khzernou         ###   ########.fr       */
+/*   Updated: 2026/03/28 17:44:05 by khzernou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
 void			init_stack_a(t_stack_node **a, char **argv);
-void			free_matrix(char **argv);
 
 /* --- Operations --- */
 void			sa(t_stack_node **a, char *op);
