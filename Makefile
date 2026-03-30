@@ -17,7 +17,8 @@ SRCS = main.c \
 		moves.c \
 		moves_2.c \
 		utils.c \
-		utils_2.c
+		utils_2.c \
+		free.c \
 
 OBJS = $(SRCS:.c=.o)
 
